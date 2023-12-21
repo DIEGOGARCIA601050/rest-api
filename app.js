@@ -5,7 +5,7 @@ const PORT = process.env.PORT ?? 3000
 
 const app = express()
 
-app.use(cors({
+app.use(cors/*({
     origin: (origin, callback) => {
       const AceptedOrigins = [
         '*',
@@ -19,17 +19,13 @@ app.use(cors({
       }
       return callback(new Error('No hay cors'))
     }
-  }))
+  })*/)
 app.use(express.json())
 
 app.disable('x-powered-by')
 
 app.get('/',(req, resp)=>{
     resp.sendFile(path.resolve('./web/index.html'));
-})
-
-app.get('/red-social', (req, res) => {
-    res.sendFile(path.resolve('../Conversor/alexander-sinn-YYUM2sNvnvU-unsplash.jpg'))
 })
 
 app.get('/usuarios/registro', cors(), (req, resp)=>{
