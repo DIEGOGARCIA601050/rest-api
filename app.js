@@ -6,7 +6,7 @@ const PORT = process.env.PORT ?? 3000
 
 const app = express()
 
-// app.use(express.static('../web'))
+// app.use(express.static('./web'))
 app.use(cors({
     origin: (origin, callback) => {
       const AceptedOrigins = [
