@@ -1,4 +1,3 @@
-const { ValidateSchema } = require('./Schemas/movies.js')
 const path = require('path');
 const cors = require('cors')
 const express = require('express')
@@ -6,7 +5,6 @@ const PORT = process.env.PORT ?? 3000
 
 const app = express()
 
-// app.use(express.static('./web'))
 app.use(cors({
     origin: (origin, callback) => {
       const AceptedOrigins = [
@@ -45,16 +43,7 @@ app.get('/usuarios/registro', cors(), (req, resp)=>{
 
 app.post('/', cors(), (req, res) => {
     const data = req.body;
-    
-    if (ValidateSchema(data)) {
-        res.status(201).send({
-            "mensaje": "recibido"
-        })
-    } else {
-        res.status(400).json({
-            "error": "El formato del mensaje no es correcto"
-        })
-    }
+    console.log(data);
 })
 
 app.put('/usuarios',(req, resp)=>{
