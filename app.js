@@ -43,7 +43,7 @@ app.get('/usuarios/registro', cors(), (req, resp)=>{
 
 app.post('/', cors(), (req, res) => {
     const data = req.body;
-    console.log(data);
+    res.send(data)
 })
 
 app.put('/usuarios',(req, resp)=>{
