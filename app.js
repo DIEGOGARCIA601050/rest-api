@@ -1,4 +1,5 @@
 const path = require('path');
+const { randomUUID } = require('crypto')
 const express = require('express')
 const Users = require('./Users.json')
 const PORT = process.env.PORT ?? 3000
@@ -20,7 +21,11 @@ app.get('/usuarios/registro', (req, resp) => {
 app.post('/', (req, res) => {
     req.header('Access-Control-Allow-Origin', '*')
     const data = req.body;
-    Users.push(data)
+    const User = {
+        id: randomUUID(),
+        ...data
+    }
+    Users.push(User)
     res.send(data)
 })
 
