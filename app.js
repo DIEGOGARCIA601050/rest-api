@@ -21,6 +21,9 @@ app.get('/usuarios/registro', (req, resp) => {
 app.post('/', (req, res) => {
     req.header('Access-Control-Allow-Origin', '*')
     const data = req.body;
+    if (!data) {
+        res.status(404).send({message: "not found"})
+    }
     const User = {
         id: randomUUID(),
         ...data
@@ -30,19 +33,19 @@ app.post('/', (req, res) => {
 })
 
 app.put('/usuarios',(req, resp)=>{
-    resp.send('usuario actualizado exitosamente');
+    resp.json({"message": "usuario actualizado exitosamente"});
 })
 
 app.delete('/usuarios',(req, resp)=>{
-    resp.send('usuario borrado exitosamente')
+    resp.send({"message": "usuario borrado exitosamente"})
 })
 
 app.patch('/usuarios',(req, resp)=>{
-    resp.send('cambios realizados en el usuario exitosamente')
+    resp.json({"message": "cambios realizados en el usuario exitosamente"})
 })
 
 app.use((req, res) => {
-    res.status(404).send('<h1>Error 404: page not found')
+    res.status(404).json({"Error 404": "page not found"})
 })
 
 app.listen(PORT)
