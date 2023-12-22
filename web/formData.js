@@ -21,9 +21,9 @@ document.querySelector('form')
               })
               .then(res => {
                 if (typeof res === 'object') {
-                    res.json(res)
-                } else if (typeof res === 'string') {
-                    res.text()
+                    return res.json()
+                } else {
+                    return res.text()
                 }
               })
               .then(data => {

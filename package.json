@@ -1,18 +1,24 @@
 {
-  "name": "rest-api",
+  "name": "express",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./app.js",
+    "start": "node ./app.js",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "2.8.5",
-    "express": "4.18.2",
-    "zod": "3.21.4"
+    "express": "^4.18.2",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "nodemon": "3.0.1"
   }
 }

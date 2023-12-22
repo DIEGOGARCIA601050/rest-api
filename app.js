@@ -1,7 +1,9 @@
+const { ValidateSchema } = require('./Schemas/Users')
 const path = require('path');
 const { randomUUID } = require('crypto')
 const express = require('express')
 const Users = require('./Users.json')
+const cors = require('cors')
 const PORT = process.env.PORT ?? 3000
 
 const app = express()
@@ -21,7 +23,8 @@ app.get('/usuarios/registro', (req, resp) => {
 app.post('/', (req, res) => {
     req.header('Access-Control-Allow-Origin', '*')
     const data = req.body;
-    if (!data) {
+    const Validator = ValidateSchema(data)
+    if (!Validator.success) {
         res.status(404).send({message: "not found"})
     }
     const User = {
@@ -50,3 +53,4 @@ app.use((req, res) => {
 
 app.listen(PORT)
 console.log(`Server on  http://localhost:${PORT}`)
+console.log(cors);
