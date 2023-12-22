@@ -1,25 +1,8 @@
 const path = require('path');
-const cors = require('cors')
 const express = require('express')
 const PORT = process.env.PORT ?? 3000
 
 const app = express()
-
-app.use(cors/*({
-    origin: (origin, callback) => {
-      const AceptedOrigins = [
-        '*',
-        'dominio.example'
-      ]
-      if (AceptedOrigins.includes(origin)) {
-        return callback(null, true)
-      }
-      if (!origin) {
-        return callback(null, true)
-      }
-      return callback(new Error('No hay cors'))
-    }
-  })*/)
 app.use(express.json())
 
 app.disable('x-powered-by')
@@ -38,6 +21,7 @@ app.get('/usuarios/registro', cors(), (req, resp)=>{
 })
 
 app.post('/', cors(), (req, res) => {
+    req.header('Access-Control-Allow-Origin', '*')
     const data = req.body;
     res.send(data)
 })
