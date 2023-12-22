@@ -3,15 +3,16 @@ const express = require('express')
 const PORT = process.env.PORT ?? 3000
 
 const app = express()
+app.use(express.static(path.resolve('./web')))
 app.use(express.json())
 
 app.disable('x-powered-by')
 
-app.get('/',(req, resp)=>{
+app.get('/', (req, resp) => {
     resp.sendFile(path.resolve('./web/index.html'));
 })
 
-app.get('/usuarios/registro', (req, resp)=>{
+app.get('/usuarios/registro', (req, resp) => {
     resp.json({
         nombre: 'John',
         edad: 25,
