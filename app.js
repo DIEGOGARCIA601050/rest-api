@@ -11,7 +11,7 @@ app.get('/',(req, resp)=>{
     resp.sendFile(path.resolve('./web/index.html'));
 })
 
-app.get('/usuarios/registro', cors(), (req, resp)=>{
+app.get('/usuarios/registro', (req, resp)=>{
     resp.json({
         nombre: 'John',
         edad: 25,
@@ -20,7 +20,7 @@ app.get('/usuarios/registro', cors(), (req, resp)=>{
     )
 })
 
-app.post('/', cors(), (req, res) => {
+app.post('/', (req, res) => {
     req.header('Access-Control-Allow-Origin', '*')
     const data = req.body;
     res.send(data)
