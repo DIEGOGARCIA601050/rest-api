@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express')
+const Users = require('./Users.json')
 const PORT = process.env.PORT ?? 3000
 
 const app = express()
@@ -13,17 +14,13 @@ app.get('/', (req, resp) => {
 })
 
 app.get('/usuarios/registro', (req, resp) => {
-    resp.json({
-        nombre: 'John',
-        edad: 25,
-        correo: 'john.adams@example-pet-store.com'
-    }
-    )
+    resp.json(Users)
 })
 
 app.post('/', (req, res) => {
     req.header('Access-Control-Allow-Origin', '*')
     const data = req.body;
+    Users.push(data)
     res.send(data)
 })
 

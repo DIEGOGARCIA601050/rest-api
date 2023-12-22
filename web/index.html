@@ -4,36 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrate</title>
-    <!-- <style>
-      .formulario {
-    width: 300px;
-    margin: 0 auto;
-    }
-  
-    label {
-        display: block;
-        margin-bottom: 5px;
-      }
-      
-      input[type="text"],
-      input[type="number"] {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-      }
-      
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-      }
-      
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-    </style> -->
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -54,34 +24,6 @@
         <input type="number" id="edad" name="edad" />
         <input type="submit" contenteditable="enviar" />
       </form>
-    <script>
-      let Usuario;
-      document.querySelector('form')
-          .addEventListener('submit', e => {
-              
-              e.preventDefault()
-              const data = Object.fromEntries(
-              new FormData(e.target)
-              )
-              alert(JSON.stringify(data))
-              Usuario = JSON?.stringify(data)
-              Usuario = JSON.parse(Usuario)
-              console.info(Usuario)
-              Usuario.edad = parseInt(Usuario.edad)
-              console.info(Usuario)
-              fetch('https://rest-api-dev-zatj.1.us-1.fl0.io/', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(Usuario)
-              })
-              .then(res => res.text())
-              .then(data => {
-                  console.info(data)
-              })
-              .catch(error => console.log(error))
-          })
-    </script>
+    <script src="./formData.js"></script>
 </body>
 </html>
