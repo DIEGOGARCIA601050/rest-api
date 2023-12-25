@@ -18,6 +18,12 @@ function ValidateSchema(Object) {
     return schema.safeParse(Object)
 }
 
+function validateParcialMovie (object) {
+  const validate = schema.partial().safeParse(object)
+  return validate
+}
+
 module.exports = {
-    ValidateSchema
+    ValidateSchema,
+    validateParcialMovie
 }

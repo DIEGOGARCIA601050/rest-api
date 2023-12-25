@@ -1,7 +1,8 @@
 [
   {
     "nombre": "John",
-    "edad": 25,
-    "correo": "john.adams@example-pet-store.com"
+    "apellido": "Jhonson",
+    "contrasena": "123456",
+    "edad": 25
   }
 ]
